@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<svg width="960" height="673" stroke="#fff" stroke-width="0.5"></svg>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+<script src="./node_modules/@turf/isobands/index.js"></script>
+<script src="./node_modules/@turf/isobands/main.js"></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+<style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+<script>
+
+    // // create a grid of points with random z-values in their properties
+    // var extent = [0, 30, 20, 50];
+    // var cellWidth = 100;
+    // var pointGrid = turf.pointGrid(extent, cellWidth, {units: 'miles'});
+    // for (var i = 0; i < pointGrid.features.length; i++) {
+    //     pointGrid.features[i].properties.temperature = Math.random() * 10;
+    // }
+    // var breaks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    // // var isolines = turf.isolines(pointGrid, breaks, {zProperty: 'temperature'});
+    // var isolines = turf.is
+    
+    // //addToMap
+    // var addToMap = [isolines];
+
+    var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
+    var cellSize = 3;
+    var grid = turf.pointGrid(extent, cellSize);
+    // add a random property to each point between 0 and 60
+    for (var i = 0; i < grid.features.length; i++) {
+      grid.features[i].properties.elevation = (Math.random() * 60);
+    }
+    theMatrix = gridToMatrix(grid);
+
+</script>
+
+<div id='map'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamFzb25yYmVybmV5IiwiYSI6ImNqZm9mcTN1bzFjOGwycW1rOHM5Zm5zb2QifQ.qp5KX0tE4TGKh5AHo994IA';
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
+        center: [-74.50, 40], // starting position [lng, lat]
+        zoom: 1 // starting zoom
+    });
+    map.on('load', function(){
+        map.addLayer({
+          id: "test",
+          source: {
+            type: "geojson",
+            data: addToMap[0]
+          },
+          type:"line"
+        })
+      })
+</script>
+
+</body>
+</html>
