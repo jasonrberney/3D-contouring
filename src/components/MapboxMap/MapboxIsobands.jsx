@@ -39,7 +39,7 @@ class MapboxIsobands extends Component {
             minZoom: 1,
             zoom: 1,
             //center: [-99.4265, 31.8274],
-            style: `mapbox://styles/mapbox/dark-v9`,
+            style: `mapbox://styles/mapbox/light-v9`,
             hash: false
         });    
 
@@ -55,6 +55,7 @@ class MapboxIsobands extends Component {
               paint: {
                 'line-color': ['get', 'color'],
                 'line-width': 2,
+                'line-opacity': .5,
               }
             })
           }) 
