@@ -1,8 +1,8 @@
 {
-  "name": "ERCOT",
+  "name": "CONTOUR",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://integralgis.visualstudio.com/DefaultCollection/_git/ERCOT",
+  "repository": "https://github.com/jasonrberney/contour-mapping",
   "author": "<jasonrberney@gmail.com>",
   "license": "MIT",
   "scripts": {
