@@ -1,0 +1,25 @@
+{
+  "name": "isochrone",
+  "version": "0.1.0",
+  "description": "Isochrone generator built atop the Mapbox Matrix API, with CONREC polygonization.",
+  "main": "isochrone.js",
+  "scripts": {
+    "build": "browserify index.js -o app.js"
+  },
+  "author": "Peter Liu peterqliu@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@turf/helpers": "^4.3.0",
+    "@turf/inside": "^3.10.3",
+    "cheap-ruler": "^2.5.1",
+    "d3-request": "^1.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapbox/isochrone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mapbox/isochrone/issues"
+  },
+  "homepage": "https://github.com/mapbox/isochrone#readme"
+}
